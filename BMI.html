@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI</title>
+</head>
+<div style="float: left; width: 50%">
+<h1>Kiểm tra BMI</h1>
+<p>BMI (Body mass index) - Chỉ số khối cơ thể,là một thước đo sức khoẻ dựa trên cân nặng và chiều cao. Nó được tính bằng cách lấy cân nặng đơn vị tính kilogam chia cho bình phương của chiều cao đơn vị tính mét</p>
+</div>
+<br><br><br><br>
+<div style="float: right; width: 50%;text-align: left ">
+        <table align="right">
+            <tr>
+                <th style="width: 150px">BMI</th>
+                <th style="width: 150px">Interpretation</th>
+            </tr>
+            <tr>
+                <td>BMI < 18.5</td>
+                <td>Gầy</td>
+            </tr>
+            <tr>
+                <td>18.5 ≤ BMI ≤ 25.0</td>
+                <td>Bình thường</td>
+            </tr>
+            <tr>
+                <td>25.0 ≤ BMI ≤30.0</td>
+                <td>Béo</td>
+            </tr>
+            <tr>
+                <td>30.0 ≤ BMI</td>
+                <td>Béo phì</td>
+            </tr>
+        </table>
+</div>
+
+<body>
+Nhập cân nặng   <input type="number" id="weight">
+<br>
+Nhập chiều cao <input type="number" id="height">
+<br>
+<input onclick="cal()" type="button" value="Tính">
+<br>
+<br>
+<span id="bmi"></span>
+<script>
+    function cal() {
+        let w = Number(document.getElementById("weight").value);
+        let h = Number(document.getElementById("height").value);
+        let bmi = w / (h**2);
+        document.getElementById("bmi").innerText = "Kết quả: " + bmi.toFixed(2);
+        switch ((bmi<18.5)? 1 : (18.5 <= bmi <= 25.0)?2:(25.0<=bmi<=30.0)?3:4)
+        {
+            case 1:
+                document.getElementById("bmi").innerText = "Gầy";
+            break;
+            case 2:
+                document.getElementById("bmi").innerText = "Bình thường";
+            break;
+            case 3:
+                document.getElementById("bmi").innerText = "Béo";
+            break;
+            case 4:
+                document.getElementById("bmi").innerText = "Béo phì";
+            break;
+        }
+    }
+
+</script>
+</body>
+</html>
